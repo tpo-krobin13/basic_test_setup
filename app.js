@@ -1,7 +1,6 @@
 // create weather application
 // user types in zip code from command line and it retrieves a weather message from remote service
   // api.openweathermap.org/data/2.5/weather?zip={zip code},{country code}&appid={API key}
-  //  api key: 70a390896e3dd463d387be85156412d3
   // url 
 
 
