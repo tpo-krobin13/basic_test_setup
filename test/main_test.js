@@ -10,13 +10,13 @@ describe('Mocha', function () {
   })
 })
 
-  describe('App.js', function () {
+describe('App.js', function () {
   describe('getArguments', function () {
-      var getArguments = require('../app.js').getArguments;
+      var { getArguments } = require('../app.js');
       it('should remove first two commandLine arguments', function () {
-        const argumentString = ['/opt/homebrew/Cellar/node/15.8.0/bin/node','/Users/krobinson/Development/vsc/th_profile_app/app.js','kenny','otherUser'];
+        const argumentString = ['/opt/homebrew/Cellar/node/15.8.0/bin/node','/Users/krobinson/Development/vsc/th_profile_app/app.js','Cinderella','otherUser'];
 
-          expected = ['kenny','otherUser'];
+          expected = ['Cinderella','otherUser'];
           actual = getArguments(argumentString);
 
           expect(actual).to.deep.equal(expected);
@@ -25,8 +25,6 @@ describe('Mocha', function () {
   describe('validateInput', function () {
     var validateInput = require('../app.js').validateInput;
     it('should throw an error when letters are present', function () {
-      
-      expected = 'error';
       actual = validateInput('ggggg');
       expect(actual).to.be.an('error');
 
@@ -42,7 +40,7 @@ describe('Mocha', function () {
 
       expected = 'error';
       actual = validateInput('000000');
-      expect(actual).to.be.an('error');
+       expect(actual).to.be.an('error');
     })
 
 
@@ -62,18 +60,8 @@ describe('Mocha', function () {
       actual = validateInput('00000');
       expect(actual).to.be.an('error');
     })
-
-
   })
-  describe('GetRemoteUrl', function () {
-    var getRemoteUrl = require('../app.js').getRemoteUrl;
-    it('should return a valid url string', function () {
-      expected = 'http://api.openweathermap.org/data/2.5/weather?zip=30331,us&appid=70a390896e3dd463d387be85156412d3';
-      actual  = getRemoteUrl(30331);
-    
-      expect(actual).to.equal(expected);
-    })
-  })
+
   describe('convertKelvenToFahrenheit', function () {
     var convertKelvenToFahrenheit = require('../app.js').convertKelvenToFahrenheit;
     it('should properly convert Kelvin to Fahrenheit', function () {
@@ -98,18 +86,6 @@ describe('Mocha', function () {
 
       expect(actual).to.equal(expected);
       done();
-    })
-  })
-
-  describe('getOpenAPIWeather', function () {
-    var printMessage = require('../app.js').printMessage;
-    var getOpenAPIWeather = require('../app.js').getOpenAPIWeather;
-    var jsonData = JSON.parse('{"coord":{"lon":-84.5205,"lat":33.7224},"weather":[{"id":804,"main":"Clouds","description":"overcast clouds","icon":"04d"}],"base":"stations","main":{"temp":281.47,"feels_like":278.23,"temp_min":280.93,"temp_max":282.15,"pressure":1016,"humidity":81},"visibility":10000,"wind":{"speed":3.09,"deg":40},"clouds":{"all":90},"dt":1613339034,"sys":{"type":1,"id":4155,"country":"US","sunrise":1613305398,"sunset":1613344885},"timezone":-18000,"id":0,"name":"Atlanta","cod":200}');
-
-    it('should print the users weather string', function (done) {
-      actual = getOpenAPIWeather(30331, printMessage);
-      done();
-      expect(actual).is.not.empty;
     })
   })
 });
