@@ -35,7 +35,7 @@ function validateInput(inValue){
 }
 function getRemoteUrl (zipCode) {
     if(validateInput(zipCode)){
-      return `http://api.openweathermap.org/data/2.5/weather?zip=${zipCode},us&appid=70a390896e3dd463d387be85156412d3`;
+      return `http://api.openweathermap.org/data/2.5/weather?zip=${zipCode},us`;
     } else {
       throw (new Error('Unable to process request'));
     }
