@@ -1,17 +1,3 @@
-// create weather application
-// user types in zip code from command line and it retrieves a weather message from remote service
-// api.openweathermap.org/data/2.5/weather?zip={zip code},{country code}&appid={API key}
-// url
-
-// ensure you can retrieve params from command line +
-// ensure only digits are provided +
-// ensure incorrect entries generate an error +
-// call remote api and pass zip code
-// ensure remote api returns a response
-// ensure remote url problems are handled with an error
-// ensure remote parsed to valid json
-// ensure remote json has the values
-// print message back to the screen
 var fetch = require('node-fetch');
 const config = require('./config');
 
@@ -64,10 +50,5 @@ function initApp () {
   });
 }
 
+export default all;
 
-module.exports.getArguments = getArguments;
-module.exports.validateInput = validateInput;
-module.exports.getRemoteUrl = getRemoteUrl;
-module.exports.convertKelvenToFahrenheit = convertKelvenToFahrenheit;
-module.exports.printMessage = printMessage;
-module.exports.getOpenAPIWeather = getOpenAPIWeather;
