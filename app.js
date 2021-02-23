@@ -50,5 +50,10 @@ function initApp () {
   });
 }
 
-export default all;
 
+module.exports.getArguments = getArguments;
+module.exports.validateInput = validateInput;
+module.exports.getRemoteUrl = getRemoteUrl;
+module.exports.convertKelvenToFahrenheit = convertKelvenToFahrenheit;
+module.exports.printMessage = printMessage;
+module.exports.getOpenAPIWeather = getOpenAPIWeather;
