@@ -1,14 +1,20 @@
 {
   "dependencies": {
     "node-fetch": "^2.6.1",
-    "semistandard": "^16.0.0",
     "test": "^0.6.0"
   },
   "scripts": {
     "test": "mocha"
   },
   "devDependencies": {
+    "semistandard": "^16.0.0",
     "chai": "^4.3.0",
     "mocha": "^8.3.0"
+  },
+  "semistandard": {
+    "env": [
+      "node-fetch",
+      "mocha"
+    ]
   }
 }
