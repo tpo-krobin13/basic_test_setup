@@ -1,7 +1,6 @@
 const expect = require('chai').expect;
 
 describe('Mocha', function () {
-  // Test spec (unit test)
 
   it('should run our tests using npm', function () {
     expect(true).to.be.ok;
@@ -12,23 +11,34 @@ describe('App.js', function () {
   describe('getArguments', function () {
       var { getArguments } = require('../app.js');
       it('should remove first two commandLine arguments', function () {
+        // Given
         const argumentString = ['/opt/homebrew/Cellar/node/15.8.0/bin/node','/Users/krobinson/Development/vsc/th_profile_app/app.js','Cinderella','otherUser'];
 
-          const expected = ['Cinderella','otherUser'];
-          const actual = getArguments(argumentString);
-
-          expect(actual).to.deep.equal(expected);
+        // When 
+        const actual = getArguments(argumentString);
+        const expected = ['Cinderella','otherUser'];
+        
+        // Then
+        expect(actual).to.deep.equal(expected);
       })
   })
   describe('validateInput', function () {
     var validateInput = require('../app.js').validateInput;
     it('should throw an error when letters are present', function () {
-      let actual = validateInput('ggggg');
+      //Given 
+      let allLetters = 'ggggg';
+      let fourLetters = '0000w';
+
+      //when 
+      let actual = validateInput(allLetters);
+
+      //Then
       expect(actual).to.be.an('error');
 
-      let expected = 'error';
-      actual = validateInput('0000w');
+      // When
+      actual = validateInput(fourLetters);
 
+      // Then
       expect(actual).to.be.an('error');
     })
 
